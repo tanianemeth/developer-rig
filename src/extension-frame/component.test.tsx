@@ -16,6 +16,7 @@ const defaultPropGenerator = () => ({
   type: ExtensionAnchor.Panel,
   mode: ExtensionMode.Viewer,
   iframe: '',
+  isLocal: false,
   isPopout: false,
   bindIframeToParent: jest.fn(),
 });

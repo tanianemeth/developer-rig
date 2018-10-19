@@ -67,11 +67,8 @@ export class ExtensionView extends React.Component<Props, State> {
   private bindIframeToParent = (iframe: HTMLIFrameElement) => {
     if (iframe) {
       const coordinatorScriptElement = document.getElementById('coordinatorScriptElement') as HTMLScriptElement;
-      const coordinatorUrl = this.props.isLocal ?
-        `https://${window.location.host}/coordinator.js` :
-        coordinatorScriptElement.src;
       const attribute = iframe.contentDocument.createAttribute('coordinatorUrl');
-      attribute.value = coordinatorUrl;
+      attribute.value = coordinatorScriptElement.src;
       iframe.attributes.setNamedItem(attribute);
     }
     this.state.iframe = iframe;
@@ -107,6 +104,7 @@ export class ExtensionView extends React.Component<Props, State> {
             installationAbilities={view.features}
             position={position}
             role={this.props.role}
+            isLocal={this.props.isLocal}
           />
         );
         break;
@@ -124,6 +122,7 @@ export class ExtensionView extends React.Component<Props, State> {
             orientation={view.orientation}
             position={position}
             role={this.props.role}
+            isLocal={this.props.isLocal}
           />
         );
         break;
@@ -140,6 +139,7 @@ export class ExtensionView extends React.Component<Props, State> {
               installationAbilities={view.features}
               type={view.type}
               mode={view.mode}
+              isLocal={this.props.isLocal}
               isPopout={false}
             />
           </div>
@@ -159,6 +159,7 @@ export class ExtensionView extends React.Component<Props, State> {
               installationAbilities={view.features}
               mode={view.mode}
               type={view.type}
+              isLocal={this.props.isLocal}
               isPopout={view.isPopout}
             />
           </div>

@@ -74,6 +74,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="config"
     type="config"
@@ -199,6 +200,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="dashboard"
     type="liveConfig"
@@ -324,6 +326,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="dashboard"
     type="liveConfig"
@@ -449,6 +452,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="viewer"
     type="panel"
@@ -574,6 +578,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="viewer"
     type="video_overlay"
@@ -699,6 +704,7 @@ ShallowWrapper {
             "isChatEnabled": true,
           }
     }
+    isLocal={false}
     isPopout={false}
     mode="viewer"
     type="video_overlay"

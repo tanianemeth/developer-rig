@@ -11,6 +11,7 @@ const setupShallow = setupShallowTest(ExtensionComponentView, () => ({
   frameSize: { width: 800, height: 600 },
   position: { x: 10, y: 10 },
   role: ViewerTypes.Broadcaster,
+  isLocal: false,
   bindIframeToParent: jest.fn(),
   installationAbilities: {
     isChatEnabled: true,
