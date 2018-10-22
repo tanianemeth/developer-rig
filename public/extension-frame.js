@@ -28,6 +28,7 @@
         body: JSON.stringify({ targets: [target], content_type: contentType, message }),
         headers: {
           'Accept': 'application/json',
+          'Client-ID': container.parameters.extension.clientId,
           'Content-Type': 'application/json',
         },
         method: 'POST',
