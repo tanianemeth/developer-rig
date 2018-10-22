@@ -45,7 +45,9 @@ export class ExtensionFrame extends React.Component<Props> {
   public extensionFrameInit = () => {
     const extension = JSON.parse(JSON.stringify(this.props.extension));
     if (this.props.isLocal) {
-      extension.views.panel.viewerUrl += '?developer_rig=local';
+      ['config', 'component', 'liveConfig', 'mobile', 'panel', 'videoOverlay'].forEach((viewName) => {
+        extension.views[viewName].viewerUrl += '?developer_rig=local';
+      });
     }
     const extensionFrameOptions: ExtensionCoordinator.ExtensionFrameOptions = {
       anchor: this.props.type as ExtensionCoordinator.ExtensionAnchor,
