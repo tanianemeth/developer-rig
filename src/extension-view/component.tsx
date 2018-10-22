@@ -88,41 +88,38 @@ export class ExtensionView extends React.Component<Props, State> {
 
   public renderView(extensionProps: ExtensionProps) {
     const { view } = this.props;
+    const commonProps = {
+      bindIframeToParent: this.bindIframeToParent,
+      channelId: view.channelId,
+      className: 'view',
+      configuration: this.props.configuration,
+      extension: this.props.extension,
+      installationAbilities: view.features,
+      isLocal: this.props.isLocal,
+    };
     const position = { x: view.x, y: view.y };
     let renderedView = null;
     switch (view.type) {
       case ExtensionAnchor.Component:
         renderedView = (
           <ExtensionComponentView
-            bindIframeToParent={this.bindIframeToParent}
-            channelId={view.channelId}
-            className="view"
-            configuration={this.props.configuration}
-            extension={this.props.extension}
+            {...commonProps}
             frameSize={view.frameSize}
             id={`component-${view.id}`}
-            installationAbilities={view.features}
             position={position}
             role={this.props.role}
-            isLocal={this.props.isLocal}
           />
         );
         break;
       case ExtensionViewType.Mobile:
         renderedView = (
           <ExtensionMobileView
-            bindIframeToParent={this.bindIframeToParent}
-            channelId={view.channelId}
-            className="view"
-            configuration={this.props.configuration}
-            extension={this.props.extension}
+            {...commonProps}
             frameSize={view.frameSize}
             id={`mobile-${view.id}`}
-            installationAbilities={view.features}
             orientation={view.orientation}
             position={position}
             role={this.props.role}
-            isLocal={this.props.isLocal}
           />
         );
         break;
@@ -130,17 +127,11 @@ export class ExtensionView extends React.Component<Props, State> {
         renderedView = (
           <div className="view nono_zone" style={extensionProps.viewStyles}>
             <ExtensionFrame
-              bindIframeToParent={this.bindIframeToParent}
-              channelId={view.channelId}
-              className="view"
-              configuration={this.props.configuration}
-              extension={this.props.extension}
+              {...commonProps}
               frameId={`frameid-${view.id}`}
-              installationAbilities={view.features}
-              type={view.type}
-              mode={view.mode}
-              isLocal={this.props.isLocal}
               isPopout={false}
+              mode={view.mode}
+              type={view.type}
             />
           </div>
         );
@@ -150,17 +141,11 @@ export class ExtensionView extends React.Component<Props, State> {
         renderedView = (
           <div className="view" style={extensionProps.viewStyles}>
             <ExtensionFrame
-              bindIframeToParent={this.bindIframeToParent}
-              channelId={view.channelId}
-              className="view"
-              configuration={this.props.configuration}
-              extension={this.props.extension}
+              {...commonProps}
               frameId={`frameid-${view.id}`}
-              installationAbilities={view.features}
+              isPopout={view.isPopout}
               mode={view.mode}
               type={view.type}
-              isLocal={this.props.isLocal}
-              isPopout={view.isPopout}
             />
           </div>
         );
